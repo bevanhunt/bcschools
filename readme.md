@@ -9,7 +9,7 @@
 6. open browser to http://localhost:3000
 
 ## Compat
-Tested with Webkit, Firefox, IE9, iPhone, and iPad
+Tested on desktop with Webkit, Firefox, IE9
 
 ## Demo
 http://bclibraries.meteor.com
