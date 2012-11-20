@@ -1,7 +1,3 @@
-# create marker collection
-Meteor.subscribe('markers')
-Markers = new Meteor.Collection('markers')
-
 # resize the layout
 window.resize = (t) ->
   w = window.innerWidth
@@ -26,18 +22,16 @@ Template.map.rendered = ->
   # create a map in the map div, set the view to a given place and zoom
   window.map = L.map 'map', 
     doubleClickZoom: false
-  .setView([49.25044, -123.137], 13)
+  .setView([53.25044, -123.137], 4)
 
   # add a CloudMade tile layer with style #997 - use your own cloudmade api key
   L.tileLayer "http://{s}.tile.cloudmade.com/#{window.cloudmade}/997/256/{z}/{x}/{y}.png", 
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>'
   .addTo(window.map)
   
-  # add popup to libraries
+  # add popup to each marker
   onEachFeature = (feature, layer) ->
     if feature.properties
-      # create the data structure
-      # name <br> address
       name = feature.properties["Name"]
       description = feature.properties["Description"]
       matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sP/)
@@ -48,4 +42,3 @@ Template.map.rendered = ->
   L.geoJson geojson,
     onEachFeature: onEachFeature
   .addTo(map)
-  # L.geoJson(geojson).addTo(window.map)
