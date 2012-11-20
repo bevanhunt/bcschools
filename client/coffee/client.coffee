@@ -4,11 +4,11 @@ window.resize = (t) ->
   h = window.innerHeight
   top = t.find('#map').offsetTop
   c = w - 40
-  m = (h-top) - 65 
+  m = (h-top) - 110 
   t.find('#container').style.width = "#{c}px"
   t.find('#map').style.height = "#{m}px" 
 
-Template.map.rendered = ->
+Template.map.rendered = ->  
   # resize on load
   window.resize(@)
 

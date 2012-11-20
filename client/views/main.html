@@ -1,0 +1,28 @@
+<head>
+  <title>BC Public Libraries</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+    {{> map}}
+</body>
+
+<template name="map">
+  {{#constant}}
+    <div id="container" class="container">
+      <table class="header">
+        <tr>
+          <td>
+            <img src="bc.png">
+          </td>
+          <td>
+            <h1>BC Public Libraries</h1>
+          </td>
+        </tr>
+      </table>
+      <div class="map-container">
+        <div id="map" class="map"></div>
+      </div>
+    </div>
+  {{/constant}}
+</template>
