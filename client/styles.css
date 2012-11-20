@@ -1,0 +1,53 @@
+body {
+  font-family: Arial;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: Arial;
+}
+
+.map {
+  height: 300px; 
+  border: solid 1px black;
+}
+
+.first {
+  margin-top: 15px;
+}
+
+.container {
+  width: 600px; 
+  margin: 35px auto 0 auto;
+}
+
+.title {
+  margin-top: 0; 
+  margin-bottom: 10px; 
+  text-align: center;
+}
+
+.notice {
+  text-align: center;
+}
+
+@media all and (max-width: 480px) {
+  /* styles for iPhone/Android landscape (and really narrow browser windows) */
+  .notice {
+    font-size: 11px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  /* styles for iPhone/Android portrait */
+  .notice {
+      font-size: 11px;
+  }
+}
+
+@media all and (max-width: 240px) {
+  /* styles for smaller devices */
+  .notice{
+    font-size: 11px;
+  }
+}
