@@ -4,7 +4,7 @@ window.resize = (t) ->
   h = window.innerHeight
   top = t.find('#map').offsetTop
   c = w - 40
-  m = (h-top) - 110 
+  m = (h-top) - 30
   t.find('#container').style.width = "#{c}px"
   t.find('#map').style.height = "#{m}px" 
 
