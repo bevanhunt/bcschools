@@ -28,7 +28,7 @@ Template.map.rendered = ->
   L.tileLayer "http://{s}.tile.cloudmade.com/#{window.cloudmade}/997/256/{z}/{x}/{y}.png", 
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, 
     <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © 
-    <a href="http://cloudmade.com">CloudMade</a>, Dataset was updated on 11-19-2012
+    <a href="http://cloudmade.com">CloudMade</a>, Dataset was updated on 2012-11-19
     <br> This information is provided by the 
     <a href="http://www2.gov.bc.ca/">Province of British Columbia</a> under the 
     <a href="http://www.data.gov.bc.ca/dbc/admin/terms.page">Open Government License for Government of BC Information v.BC1.0</a>'
