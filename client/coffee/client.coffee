@@ -26,7 +26,13 @@ Template.map.rendered = ->
 
   # add a CloudMade tile layer with style #997 - use your own cloudmade api key
   L.tileLayer "http://{s}.tile.cloudmade.com/#{window.cloudmade}/997/256/{z}/{x}/{y}.png", 
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a><br> This information is provided by the <a href="http://www2.gov.bc.ca/">Province of British Columbia</a> under the <a href="http://www.data.gov.bc.ca/dbc/admin/terms.page">Open Government License for Government of BC Information v.BC1.0</a>'
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, 
+    <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © 
+    <a href="http://cloudmade.com">CloudMade</a><br> This information is provided by the 
+    <a href="http://www2.gov.bc.ca/">Province of British Columbia</a> under the 
+    <a href="http://www.data.gov.bc.ca/dbc/admin/terms.page">Open Government License for Government of BC Information v.BC1.0</a>
+    <br>
+    Data was updated on November 19 2012'
   .addTo(window.map)
   
   # add popup to each marker
