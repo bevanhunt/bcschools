@@ -12,4 +12,4 @@
 Tested on Webkit, Firefox, IE9, and iPad
 
 ## Demo
-http://bclibraries.meteor.com
+http://www.bclibrariesmap.ca
