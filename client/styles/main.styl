@@ -1,6 +1,7 @@
 body 
-  margin 15px auto 0 auto
-  background url(../../lib.jpg) fixed black
+  padding 0
+  margin 15px auto 0px auto
+  background url(../../lib.jpg)
 
 h1 
   font-family Garamond, serif
@@ -24,6 +25,22 @@ h1
 
 .title 
   font-size 75px
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (min-device-width : 320px)  
+  .title
+    font-size 22px
+  .map-container
+    margin 0 0 0 0 14px
+    width 100%
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px)
+  .title
+    font-size 32px
+  .map-container
+    margin 0 0 0 14px
+    width 100%
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) 
