@@ -22,7 +22,7 @@ Template.map.rendered = ->
   # create a map in the map div, set the view to a given place and zoom
   window.map = L.map 'map', 
     doubleClickZoom: false
-  .setView([53.25044, -123.137], 4)
+  .setView([53.25044, -123.137], 5)
 
   # add a CloudMade tile layer with style #997 - use your own cloudmade api key
   L.tileLayer "http://{s}.tile.cloudmade.com/#{window.cloudmade}/997/256/{z}/{x}/{y}.png", 
