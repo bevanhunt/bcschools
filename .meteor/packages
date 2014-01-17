@@ -5,6 +5,7 @@
 
 preserve-inputs
 coffeescript
-leaflet
 jquery
 stylus
+standard-app-packages
+leaflet

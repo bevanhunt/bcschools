@@ -1,4 +1,4 @@
-var geojson = {
+window.geojson = {
 "type": "FeatureCollection",
 "features": [
 { "type": "Feature", "properties": { "Name": "Alert Bay", "Description": "Type: Public Library Association Library System: Alert Bay Public Library Address: 118 Fir Street City: Alert Bay PostCode: V0N 1A0" }, "geometry": { "type": "Point", "coordinates": [ -126.906570, 50.577201 ] } }

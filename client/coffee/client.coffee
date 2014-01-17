@@ -25,7 +25,7 @@ Template.map.rendered = ->
   .setView([53.25044, -123.137], 5)
 
   # add a CloudMade tile layer with style #997 - use your own cloudmade api key
-  L.tileLayer "http://{s}.tile.cloudmade.com/#{window.cloudmade}/997/256/{z}/{x}/{y}.png", 
+  L.tileLayer "http://{s}.tile.cloudmade.com/c337a7e5e7c241958df4332a8713a0a9/997/256/{z}/{x}/{y}.png", 
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, 
     <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © 
     <a href="http://cloudmade.com">CloudMade</a>, Dataset was updated on 2012-11-19
@@ -44,6 +44,6 @@ Template.map.rendered = ->
       layer.bindPopup(popup)
   
   # add geojson to map
-  L.geoJson geojson,
+  L.geoJson window.geojson,
     onEachFeature: onEachFeature
   .addTo(map)
