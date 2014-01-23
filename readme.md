@@ -4,9 +4,8 @@
 1. npm install -g meteorite (if not already installed)
 2. git clone https://github.com/bevanhunt/bc-libraries
 3. cd bc-libraries
-4. replace window.cloudmade variable in client.coffee with your own cloudmade API key
-5. mrt
-6. open browser to http://localhost:3000
+4. mrt
+5. open browser to http://localhost:3000
 
 ## Compat
 Tested on Webkit, Firefox, IE9, and iPad
