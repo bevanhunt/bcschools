@@ -401,7 +401,7 @@ window.geojson = {
 ,
 { "type": "Feature", "properties": { "Name": "Port Renfrew", "Description": "Type: Regional Library District Library System: Vancouver Island Regional Library Address: 6633 Deering Road City: Port Renfrew PostCode: V0S 1K0" }, "geometry": { "type": "Point", "coordinates": [ -124.409070, 48.576422 ] } }
 ,
-{ "type": "Feature", "properties": { "Name": "Quadra Island", "Description": "Type: Regional Library District Library System: Vancouver Island Regional Library Address: 712 Cramer Road City: Quadra Island PostCode: V0P 1H0" }, "geometry": { "type": "Point", "coordinates": [ -125.217761, 50.101 ] } }
+{ "type": "Feature", "properties": { "Name": "Quadra Island", "Description": "Type: Regional Library District Library System: Vancouver Island Regional Library Address: 712 Cramer Road City: Quadra Island PostCode: V0P 1H0" }, "geometry": { "type": "Point", "coordinates": [ -125.20935, 50.04015 ] } }
 ,
 { "type": "Feature", "properties": { "Name": "Qualicum Beach", "Description": "Type: Regional Library District Library System: Vancouver Island Regional Library Address: 660 Primrose Street City: Qualicum Beach PostCode: V9K 1S9" }, "geometry": { "type": "Point", "coordinates": [ -124.444331, 49.347486 ] } }
 ,
