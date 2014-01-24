@@ -1,6 +1,8 @@
 {
   "meteor": {},
   "packages": {
-    "leaflet": {}
+    "leaflet": {},
+    "sugar": {},
+    "autocompletion": {}
   }
 }

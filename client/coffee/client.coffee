@@ -1,3 +1,19 @@
+Meteor.startup ->
+  @Libraries = new Meteor.Collection('libraries')
+  Meteor.subscribe('libraries')
+
+Template.search_city.rendered = ->
+  AutoCompletion.init("input#searchBox")
+
+Template.search_city.events
+  'keyup input#searchBox': ->
+    AutoCompletion.autocomplete
+      element: 'input#searchBox'
+      collection: Libraries
+      field: 'city'
+      limit: 1
+      sort: { name: 1 }
+
 # resize the layout
 window.resize = (t) ->
   w = window.innerWidth
@@ -39,8 +55,8 @@ Template.map.rendered = ->
     if feature.properties
       name = feature.properties["Name"]
       description = feature.properties["Description"]
-      matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sP/)
-      popup = "#{name}<br>#{matches[1]}<br>#{matches[2]}"
+      matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostCode:\s(.*)/)
+      popup = "#{name}<br>#{matches[1]}<br>#{matches[2]}<br>#{matches[3]}"
       layer.bindPopup(popup)
   
   # add geojson to map

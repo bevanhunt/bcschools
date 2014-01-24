@@ -18,9 +18,27 @@
           <h1 class="title">B.C. Libraries Map</h1>
         </td>
       </tr>
+      <tr>
+        <td>
+          {{> search_city}}
+        </td>
+      </tr>
     </table>
     <div class="map-container">
       <div id="map" class="map"></div>
     </div>
   </div>
+</template>
+
+<template name="search_city">
+  <table>
+    <tr>
+      <td>
+        <h3>City Search</h3>
+      </td>
+      <td style="padding-left: 10px;">
+        <input type="text" id="searchBox">
+      </td>
+    </tr>
+  </table>
 </template>
