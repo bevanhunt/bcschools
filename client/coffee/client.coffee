@@ -13,6 +13,15 @@ Template.search_city.events
       field: 'city'
       limit: 1
       sort: { name: 1 }
+  'click #search_button': ->
+    input_value = $("input#searchBox").val()
+    layers = window.map._layers
+    for key, val of layers
+      if !val._latlng
+      else
+        console.log(val._latlng)
+        #if val._latlng.lat is mark.latlng.lat and val._latlng.lng is mark.latlng.lng
+         # window.map.removeLayer(val)
 
 # resize the layout
 window.resize = (t) ->

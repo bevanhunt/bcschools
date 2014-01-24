@@ -3,6 +3,7 @@
   "packages": {
     "leaflet": {},
     "sugar": {},
-    "autocompletion": {}
+    "autocompletion": {},
+    "bootstrap-3": {}
   }
 }
