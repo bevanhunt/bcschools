@@ -11,22 +11,32 @@ Template.search_city.events
       element: 'input#searchBox'
       collection: Libraries
       field: 'city'
-      limit: 1
+      limit: 0
       sort: { name: 1 }
   'click #search_button': ->
     input_value = $("input#searchBox").val()
-    console.log Libraries.find({city: "Vancouver"}).count()
     libraries = Libraries.find({city: { $regex : input_value, $options:"i" } })
+    # clear all markers
+    layers = window.map._layers
+    for key, val of layers
+      window.map.removeLayer(val) if val._latlng
+    # add markers based on search
     libraries.forEach (library) ->
-      #console.log library.name
-
-    # layers = window.map._layers
-    # for key, val of layers
-    #   if !val._latlng
-    #   else
-    #     console.log(val._latlng)
-    #     #if val._latlng.lat is mark.latlng.lat and val._latlng.lng is mark.latlng.lng
-         # window.map.removeLayer(val)
+      lat = library.lat
+      lng = library.lng
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}"
+      L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+  'click #reset_button': ->
+    # clear all markers
+    layers = window.map._layers
+    for key, val of layers
+      window.map.removeLayer(val) if val._latlng
+    $("#searchBox").val('')
+    Libraries.find().forEach (library) ->
+      lat = library.lat
+      lng = library.lng
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}"
+      L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
 
 # resize the layout
 window.resize = (t) ->
@@ -76,4 +86,4 @@ Template.map.rendered = ->
   # add geojson to map
   L.geoJson window.geojson,
     onEachFeature: onEachFeature
-  .addTo(map)
+  .addTo(window.map)
