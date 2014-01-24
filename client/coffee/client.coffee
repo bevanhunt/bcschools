@@ -15,12 +15,17 @@ Template.search_city.events
       sort: { name: 1 }
   'click #search_button': ->
     input_value = $("input#searchBox").val()
-    layers = window.map._layers
-    for key, val of layers
-      if !val._latlng
-      else
-        console.log(val._latlng)
-        #if val._latlng.lat is mark.latlng.lat and val._latlng.lng is mark.latlng.lng
+    console.log Libraries.find({city: "Vancouver"}).count()
+    libraries = Libraries.find({city: { $regex : input_value, $options:"i" } })
+    libraries.forEach (library) ->
+      #console.log library.name
+
+    # layers = window.map._layers
+    # for key, val of layers
+    #   if !val._latlng
+    #   else
+    #     console.log(val._latlng)
+    #     #if val._latlng.lat is mark.latlng.lat and val._latlng.lng is mark.latlng.lng
          # window.map.removeLayer(val)
 
 # resize the layout

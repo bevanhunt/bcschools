@@ -1,4 +1,4 @@
-Libraries = new Meteor.Collection('libraries')
+Libraries = new Meteor.Collection("libraries")
 Meteor.publish 'libraries', -> Libraries.find()
 
 Meteor.startup ->
@@ -12,5 +12,8 @@ Meteor.startup ->
     address = matches[1]
     city = matches[2]
     postcode = matches[3]
-    if !name.isBlank() and !address.isBlank() and !city.isBlank() and !postcode.isBlank()
-      Libraries.insert({name: name, address: address, city: city, postcode: postcode, lat: lat, lng: lng})
+    library = {name: name, address: address, city: city, postcode: postcode, lat: lat, lng: lng}
+    Libraries.insert(library) 
+ 
+  # insert adds duplicate records en-masse
+  console.log Libraries.find({}).count()
