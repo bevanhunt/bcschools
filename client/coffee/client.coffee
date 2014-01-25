@@ -15,7 +15,7 @@ Template.search_city.events
       collection: Uniques
       field: 'city'
       limit: 0
-      sort: { name: 1 }
+      sort: { city: 1 }
   'click #search_button': ->
     input_value = $("input#searchBox").val()
     libraries = Libraries.find({city: { $regex : input_value, $options:"i" } })
