@@ -5,6 +5,6 @@
     "sugar": {},
     "autocompletion": {},
     "bootstrap-3": {},
-    "mongodb-aggregation": {}
+    "mongodb-server-aggregation": {}
   }
 }
