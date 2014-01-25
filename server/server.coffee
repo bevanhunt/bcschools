@@ -1,6 +1,9 @@
 Libraries = new Meteor.Collection("libraries")
 Meteor.publish 'libraries', -> Libraries.find()
 
+Uniques = new Meteor.Collection("uniques")
+Meteor.publish 'uniques', -> Uniques.find()
+
 Meteor.startup ->
   libraries = []
   for feature in geojson.features
@@ -19,3 +22,7 @@ Meteor.startup ->
   if Libraries.find().count() is 0
     for library in libraries
       Libraries.insert(library)
+  array = Libraries.distinct "city"
+  if Uniques.find().count() is 0
+    for item in array
+      Uniques.insert({city: item})

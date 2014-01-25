@@ -4,6 +4,7 @@
     "leaflet": {},
     "sugar": {},
     "autocompletion": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "mongodb-aggregation": {}
   }
 }
