@@ -9,7 +9,7 @@ Meteor.startup ->
     latlng = feature.geometry["coordinates"]
     lng = latlng[0]
     lat = latlng[1]
-    matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostCode:\s(.*)/)
+    matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)/)
     address = matches[1]
     city = matches[2]
     postcode = matches[3]

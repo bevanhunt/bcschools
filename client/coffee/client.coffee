@@ -11,7 +11,7 @@ Template.search_city.events
       element: 'input#searchBox'
       collection: Libraries
       field: 'city'
-      limit: 0
+      limit: 1
       sort: { name: 1 }
   'click #search_button': ->
     input_value = $("input#searchBox").val()
@@ -79,7 +79,7 @@ Template.map.rendered = ->
     if feature.properties
       name = feature.properties["Name"]
       description = feature.properties["Description"]
-      matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostCode:\s(.*)/)
+      matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)/)
       popup = "#{name}<br>#{matches[1]}<br>#{matches[2]}<br>#{matches[3]}"
       layer.bindPopup(popup)
   
