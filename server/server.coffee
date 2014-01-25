@@ -9,11 +9,12 @@ Meteor.startup ->
     latlng = feature.geometry["coordinates"]
     lng = latlng[0]
     lat = latlng[1]
-    matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)/)
+    matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)\sPhone:\s(.*)/)
     address = matches[1]
     city = matches[2]
     postcode = matches[3]
-    library = {name: name, address: address, city: city, postcode: postcode, lat: lat, lng: lng}
+    phone = matches[4]
+    library = {name: name, address: address, city: city, postcode: postcode, phone: phone, lat: lat, lng: lng}
     libraries.push(library)
   if Libraries.find().count() is 0
     for library in libraries

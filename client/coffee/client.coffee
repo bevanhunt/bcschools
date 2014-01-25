@@ -24,7 +24,7 @@ Template.search_city.events
     libraries.forEach (library) ->
       lat = library.lat
       lng = library.lng
-      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}"
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
       L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
   'click #reset_button': ->
     # clear all markers
@@ -35,7 +35,7 @@ Template.search_city.events
     Libraries.find().forEach (library) ->
       lat = library.lat
       lng = library.lng
-      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}"
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
       L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
 
 # resize the layout
@@ -79,8 +79,8 @@ Template.map.rendered = ->
     if feature.properties
       name = feature.properties["Name"]
       description = feature.properties["Description"]
-      matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)/)
-      popup = "#{name}<br>#{matches[1]}<br>#{matches[2]}<br>#{matches[3]}"
+      matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)\sPhone:\s(.*)/)
+      popup = "#{name}<br>#{matches[1]}<br>#{matches[2]}<br>#{matches[3]}<br>#{matches[4]}"
       layer.bindPopup(popup)
   
   # add geojson to map
