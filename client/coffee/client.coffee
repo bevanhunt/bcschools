@@ -45,9 +45,9 @@ Template.search_city.events
 window.resize = (t) ->
   w = window.innerWidth
   h = window.innerHeight
-  top = t.find('#map').offsetTop
+  top = 190
   c = w - 40
-  m = (h-top) - 30
+  m = (h-top) - 20
   t.find('#container').style.width = "#{c}px"
   t.find('#map').style.height = "#{m}px" 
 
