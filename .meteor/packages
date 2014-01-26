@@ -14,3 +14,4 @@ autocompletion
 bootstrap-3
 mongodb-server-aggregation
 leaflet-spin
+leaflet-markercluster

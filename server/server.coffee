@@ -1,8 +1,11 @@
 Libraries = new Meteor.Collection("libraries")
 Meteor.publish 'libraries', -> Libraries.find()
 
-Uniques = new Meteor.Collection("uniques")
-Meteor.publish 'uniques', -> Uniques.find()
+Cities = new Meteor.Collection("cities")
+Meteor.publish 'cities', -> Cities.find({}, {sort: {city: 1}})
+
+Districts = new Meteor.Collection("districts")
+Meteor.publish 'districts', -> Districts.find({}, {sort: {district: 1}})
 
 Meteor.startup ->
   libraries = []
@@ -12,17 +15,22 @@ Meteor.startup ->
     latlng = feature.geometry["coordinates"]
     lng = latlng[0]
     lat = latlng[1]
-    matches = description.match(/Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)\sPhone:\s(.*)/)
-    address = matches[1]
-    city = matches[2]
-    postcode = matches[3]
-    phone = matches[4]
-    library = {name: name, address: address, city: city, postcode: postcode, phone: phone, lat: lat, lng: lng}
+    matches = description.match(/District Number:\s(\S+).*Address:\s(.*)\sCity:\s(.*)\sPostal:\s(.*)\sPhone:\s(.*)/)
+    district = matches[1]
+    address = matches[2]
+    city = matches[3]
+    postcode = matches[4]
+    phone = matches[5]
+    library = {name: name, district: district, address: address, city: city, postcode: postcode, phone: phone, lat: lat, lng: lng}
     libraries.push(library)
   if Libraries.find().count() is 0
     for library in libraries
       Libraries.insert(library)
-  array = Libraries.distinct "city"
-  if Uniques.find().count() is 0
-    for item in array
-      Uniques.insert({city: item})
+  cities = Libraries.distinct "city"
+  if Cities.find().count() is 0
+    for item in cities
+      Cities.insert({city: item})
+  districts = Libraries.distinct "district"
+  if Districts.find().count() is 0
+    for item in districts
+      Districts.insert({district: item})

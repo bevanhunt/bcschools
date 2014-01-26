@@ -1,17 +1,22 @@
 createMarkers = -> 
+  markers = new L.MarkerClusterGroup()
   Libraries.find().forEach (library) ->
     lat = library.lat
     lng = library.lng
-    popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
-    L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+    popup = "District: #{library.district}<br>#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
+    markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
+  window.map.addLayer(markers)
   # turn off spinner - loaded
   window.map.spin(false)
 
+@Cities = new Meteor.Collection('cities')
+Meteor.subscribe('cities')
+
+@Districts = new Meteor.Collection('districts')
+Meteor.subscribe('districts')
+
 @Libraries = new Meteor.Collection('libraries')
 Meteor.subscribe('libraries', createMarkers)
-
-@Uniques = new Meteor.Collection('uniques')
-Meteor.subscribe('uniques')
 
 Template.search_city.rendered = ->
   AutoCompletion.init("input#searchBox")
@@ -20,7 +25,7 @@ Template.search_city.events
   'keyup input#searchBox': ->
     AutoCompletion.autocomplete
       element: 'input#searchBox'
-      collection: Uniques
+      collection: Cities
       field: 'city'
       limit: 0
       sort: { city: 1 }
@@ -43,11 +48,13 @@ Template.search_city.events
     for key, val of layers
       window.map.removeLayer(val) if val._latlng
     $("#searchBox").val('')
+    markers = new L.MarkerClusterGroup()
     Libraries.find().forEach (library) ->
       lat = library.lat
       lng = library.lng
-      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
-      L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+      popup = "District: #{library.district}<br>#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
+      markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
+    window.map.addLayer(markers)
 
 # resize the layout
 window.resize = (t) ->
