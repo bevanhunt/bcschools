@@ -3,7 +3,7 @@ createMarkers = ->
   Libraries.find().forEach (library) ->
     lat = library.lat
     lng = library.lng
-    popup = "District: #{library.district}<br>#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
+    popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
     markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
   window.map.addLayer(markers)
   # turn off spinner - loaded
@@ -52,7 +52,7 @@ Template.search_city.events
     Libraries.find().forEach (library) ->
       lat = library.lat
       lng = library.lng
-      popup = "District: #{library.district}<br>#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
+      popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
       markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
     window.map.addLayer(markers)
 
