@@ -1,12 +1,14 @@
-
-createmarkers = -> Libraries.find().forEach (library) ->
-  lat = library.lat
-  lng = library.lng
-  popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
-  L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+createMarkers = -> 
+  Libraries.find().forEach (library) ->
+    lat = library.lat
+    lng = library.lng
+    popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
+    L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+  # turn off spinner - loaded
+  window.map.spin(false)
 
 @Libraries = new Meteor.Collection('libraries')
-Meteor.subscribe('libraries', createmarkers)
+Meteor.subscribe('libraries', createMarkers)
 
 @Uniques = new Meteor.Collection('uniques')
 Meteor.subscribe('uniques')
@@ -82,3 +84,6 @@ Template.map.rendered = ->
     <a href="http://www2.gov.bc.ca/">Province of British Columbia</a> under the 
     <a href="http://www.data.gov.bc.ca/dbc/admin/terms.page">Open Government License for Government of BC Information v.BC1.0</a>'
   .addTo(window.map)
+
+  # loading spinner
+  window.map.spin(true)

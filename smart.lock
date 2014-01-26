@@ -6,7 +6,8 @@
       "sugar": {},
       "autocompletion": {},
       "bootstrap-3": {},
-      "mongodb-server-aggregation": {}
+      "mongodb-server-aggregation": {},
+      "leaflet-spin": {}
     },
     "packages": {
       "leaflet": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/zvictor/meteor-mongo-server.git",
         "tag": "v1.0.3",
         "commit": "416293e383f53e2506f1b7a1a7687390cbaf0e68"
+      },
+      "leaflet-spin": {
+        "git": "https://github.com/bevanhunt/meteor-leaflet-spin.git",
+        "tag": "v0.0.1",
+        "commit": "f0dae893bcdccb944dd59ad40c0a9be3f0ca2fb7"
       },
       "jquery-ui": {
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
