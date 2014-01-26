@@ -4,9 +4,6 @@ Meteor.publish 'libraries', -> Libraries.find()
 Cities = new Meteor.Collection("cities")
 Meteor.publish 'cities', -> Cities.find({}, {sort: {city: 1}})
 
-Districts = new Meteor.Collection("districts")
-Meteor.publish 'districts', -> Districts.find({}, {sort: {district: 1}})
-
 Meteor.startup ->
   libraries = []
   for feature in geojson.features
@@ -30,7 +27,3 @@ Meteor.startup ->
   if Cities.find().count() is 0
     for item in cities
       Cities.insert({city: item})
-  districts = Libraries.distinct "district"
-  if Districts.find().count() is 0
-    for item in districts
-      Districts.insert({district: item})

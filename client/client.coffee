@@ -6,14 +6,12 @@ createMarkers = ->
     popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
     markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
   window.map.addLayer(markers)
+  window.markers = markers
   # turn off spinner - loaded
   window.map.spin(false)
 
 @Cities = new Meteor.Collection('cities')
 Meteor.subscribe('cities')
-
-@Districts = new Meteor.Collection('districts')
-Meteor.subscribe('districts')
 
 @Libraries = new Meteor.Collection('libraries')
 Meteor.subscribe('libraries', createMarkers)
@@ -32,10 +30,8 @@ Template.search_city.events
   'click #search_button': ->
     input_value = $("input#searchBox").val()
     libraries = Libraries.find({city: { $regex : input_value, $options:"i" } })
-    # clear all markers
-    layers = window.map._layers
-    for key, val of layers
-      window.map.removeLayer(val) if val._latlng
+    # clear marker groups
+    window.map.removeLayer(window.markers)
     # add markers based on search
     libraries.forEach (library) ->
       lat = library.lat
@@ -55,6 +51,7 @@ Template.search_city.events
       popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
       markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
     window.map.addLayer(markers)
+    window.markers = markers
 
 # resize the layout
 window.resize = (t) ->
