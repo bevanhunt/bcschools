@@ -1,3 +1,5 @@
+window.markers = []
+
 createMarkers = -> 
   markers = new L.MarkerClusterGroup()
   Libraries.find().forEach (library) ->
@@ -6,7 +8,7 @@ createMarkers = ->
     popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
     markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
   window.map.addLayer(markers)
-  window.markers = markers
+  window.markers.push(markers)
   # turn off spinner - loaded
   window.map.spin(false)
 
@@ -31,7 +33,8 @@ Template.search_city.events
     input_value = $("input#searchBox").val()
     libraries = Libraries.find({city: { $regex : input_value, $options:"i" } })
     # clear marker groups
-    window.map.removeLayer(window.markers)
+    for marker in window.markers
+      window.map.removeLayer(marker)
     # add markers based on search
     libraries.forEach (library) ->
       lat = library.lat
@@ -51,7 +54,7 @@ Template.search_city.events
       popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
       markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
     window.map.addLayer(markers)
-    window.markers = markers
+    window.markers.push(markers)
 
 # resize the layout
 window.resize = (t) ->
