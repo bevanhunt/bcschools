@@ -11,4 +11,4 @@
 Tested on Webkit, Firefox, IE9, and iPad
 
 ## Demo
-http://bcschools.meteor.com
+http://bcschoolsmap.ca
