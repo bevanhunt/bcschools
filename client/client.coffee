@@ -30,8 +30,12 @@ Template.search_city.events
       limit: 0
       sort: { city: 1 }
   'click #search_button': ->
+    # if pulling from dropdown then exact match
     input_value = $("input#searchBox").val()
-    libraries = Libraries.find({city: { $regex : input_value, $options:"i" } })
+    regex = "^" + input_value + "$"
+    matches = Libraries.find({ city: { $regex : regex, $options:"i" }})
+    input_value = regex if matches.count() > 0
+    libraries = Libraries.find({city: { $regex : input_value, $options:"i" }})
     # clear marker groups
     for marker in window.markers
       window.map.removeLayer(marker)
