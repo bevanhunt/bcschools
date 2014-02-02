@@ -39,6 +39,10 @@ Template.search_city.events
     # clear marker groups
     for marker in window.markers
       window.map.removeLayer(marker)
+    # clear all markers
+    layers = window.map._layers
+    for key, val of layers
+      window.map.removeLayer(val) if val._latlng
     # add markers based on search
     libraries.forEach (library) ->
       lat = library.lat
