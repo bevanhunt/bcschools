@@ -1,4 +1,4 @@
-# BC Schools Map using Meteor Leaflet
+# BC Schools Map
 
 ## How to install 
 1. npm install -g meteorite (if not already installed)
