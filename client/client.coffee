@@ -101,5 +101,8 @@ Template.map.rendered = ->
     <a href="http://www.data.gov.bc.ca/dbc/admin/terms.page">Open Government License for Government of BC Information v.BC1.0</a>'
   .addTo(window.map)
 
+  # add locate me
+  L.control.locate().addTo(window.map)
+
   # loading spinner
   window.map.spin(true)
