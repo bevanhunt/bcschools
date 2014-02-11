@@ -14,8 +14,8 @@
     "packages": {
       "leaflet": {
         "git": "https://github.com/bevanhunt/meteor-leaflet.git",
-        "tag": "v0.3.5",
-        "commit": "2aa28c1181eb642c05a751ffb44998beaa9e83ac"
+        "tag": "v0.3.6",
+        "commit": "d9e3bdb824145c1078e52945909bb1cf38724da5"
       },
       "sugar": {
         "git": "https://github.com/bevanhunt/meteor-sugar.git",
