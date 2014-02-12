@@ -6,7 +6,10 @@ createMarkers = ->
     lat = library.lat
     lng = library.lng
     popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
-    markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
+    blueMarker = L.AwesomeMarkers.icon
+      icon: 'star',
+      prefix: 'fa'
+    markers.addLayer(new L.marker([lat,lng], {icon: blueMarker}).bindPopup(popup))
   window.map.addLayer(markers)
   window.markers.push(markers)
   # turn off spinner - loaded
@@ -48,7 +51,10 @@ Template.search_city.events
       lat = library.lat
       lng = library.lng
       popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
-      L.marker([lat,lng]).addTo(window.map).bindPopup(popup)
+      blueMarker = L.AwesomeMarkers.icon
+        icon: 'star',
+        prefix: 'fa'
+      L.marker([lat,lng], {icon: blueMarker}).addTo(window.map).bindPopup(popup)
   'click #reset_button': ->
     # clear all markers
     layers = window.map._layers
@@ -60,7 +66,10 @@ Template.search_city.events
       lat = library.lat
       lng = library.lng
       popup = "#{library.name}<br>#{library.address}<br>#{library.city}<br>#{library.postcode}<br>#{library.phone}"
-      markers.addLayer(new L.marker([lat,lng]).bindPopup(popup))
+      blueMarker = L.AwesomeMarkers.icon
+        icon: 'star',
+        prefix: 'fa'
+      markers.addLayer(new L.marker([lat,lng], {icon: blueMarker}).bindPopup(popup))
     window.map.addLayer(markers)
     window.markers.push(markers)
 

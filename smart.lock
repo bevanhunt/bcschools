@@ -9,7 +9,9 @@
       "mongodb-server-aggregation": {},
       "leaflet-spin": {},
       "leaflet-markercluster": {},
-      "leaflet-locatecontrol": {}
+      "leaflet-locatecontrol": {},
+      "font-awesome": {},
+      "leaflet-awesome-markers": {}
     },
     "packages": {
       "leaflet": {
@@ -51,6 +53,16 @@
         "git": "https://github.com/bevanhunt/meteor-leaflet-locatecontrol.git",
         "tag": "v0.0.4",
         "commit": "290ce3e14814a3dc679054805ed6bbaa94a1fcb6"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "leaflet-awesome-markers": {
+        "git": "https://github.com/bevanhunt/meteor-leaflet-awesome-markers.git",
+        "tag": "v0.0.2",
+        "commit": "1cce28336cb17b7b30f61e3aa25b1e08f054a963"
       },
       "jquery-ui": {
         "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",

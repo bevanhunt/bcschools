@@ -8,6 +8,8 @@
     "mongodb-server-aggregation": {},
     "leaflet-spin": {},
     "leaflet-markercluster": {},
-    "leaflet-locatecontrol": {}
+    "leaflet-locatecontrol": {},
+    "font-awesome": {},
+    "leaflet-awesome-markers": {}
   }
 }
